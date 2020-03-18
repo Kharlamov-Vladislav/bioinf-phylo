@@ -1,0 +1,21 @@
+library(ape)
+library(ggtree)
+library(ggplot2)
+
+# Выводит филогенетическое дерево заданное файлом без параметров, с уменьшениием шрифта, в виде кладограммы
+tree1 <- read.tree("life.txt");
+
+plot(tree1)
+plot(tree1, cex = 0.3)
+plot(tree1, type = "c")
+
+# Выводит филогенетическое дерево заданное текстом без параметров, в виде неукоренненого дерева
+tree2 <- read.tree(text = "(((A, B), (C, D)), E);")
+plot(tree2)
+plot(tree2, type = "u")
+
+# Выводит дерево с помощью ggtree(без дополнительных параметров), с названиями
+tree1 <- read.tree(file = "life.txt")
+ggtree(tree1)
+ggtree(tree1) + geom_tiplab()
+
